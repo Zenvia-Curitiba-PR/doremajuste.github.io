@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eric de Godoy Corradi — Fisioterapeuta Domiciliar</title>
+    <meta name="description" content="Solucione suas dores no conforto do seu lar com fisioterapia domiciliar baseada em evidências. Agende sua avaliação gratuita." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    <style>
+        /* 
+                   GLOBAL RESET & BASE
+                    */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #0A0A0A;
+            color: #FFFFFF;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* 
+                   TYPOGRAPHY UTILITIES
+                    */
+        .heading-xl {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .heading-lg {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .heading-md {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .body-lg {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            font-weight: 400;
+            line-height: 1.7;
+            color: #B0B0B0;
+        }
+
+        .body-sm {
+            font-size: 0.875rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #9E9E9E;
+        }
+
+        .text-blue {
+            color: #1E90FF;
+        }
+
+        .text-white {
+            color: #FFFFFF;
+        }
+
+        /* 
+                   LAYOUT
+                    */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #1E90FF;
+            margin-bottom: 1rem;
+            border-left: 3px solid #1E90FF;
+            padding-left: 0.75rem;
+        }
+
+        /* 
+                   BUTTONS
+                    */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: #1E90FF;
+            color: #0A0A0A;
+            border-radius: 0;
+        }
+
+        .btn-primary:hover {
+            background-color: #1565C0;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(30, 144, 255, 0.25);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #FFFFFF;
+            border: 1px solid #3A4A5A;
+            border-radius: 0;
+        }
+
+        .btn-outline:hover {
+            border-color: #1E90FF;
+            color: #1E90FF;
+            transform: translateY(-2px);
+        }
+
+        /* 
+                   HEADER / NAV
+                    */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1A1A1A;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.125rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #FFFFFF;
+        }
+
+        .logo span {
+            color: #1E90FF;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: #B0B0B0;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #FFFFFF;
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 1.25rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background-color: transparent;
+            border: 1px solid #1E90FF;
+            color: #1E90FF;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background-color: #1E90FF;
+            color: #0A0A0A;
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 
+                   HERO (PRIMEIRA DOBRA)
+                    */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle at center, rgba(30, 144, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        #hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 560px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 1rem;
+            background-color: #1A1A1A;
+            border-left: 3px solid #1E90FF;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #B0B0B0;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Placeholder da foto do Eric */
+        .hero-photo-placeholder {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 3 / 4;
+            background-color: #1A1A1A;
+            border: 1px solid #2A2A2A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #9E9E9E;
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-photo-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border: 1px solid #3A4A5A;
+            z-index: -1;
+        }
+
+        .hero-photo-placeholder .icon-camera {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            opacity: 0.4;
+        }
+
+        /* Elemento geométrico decorativo */
+        .hero-geo {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            border: 1px solid #3A4A5A;
+            z-index: -1;
+        }
+
+        .hero-geo::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            border: 1px solid rgba(30, 144, 255, 0.2);
+        }
+
+        /* 
+                   BENEFÍCIOS
+                    */
+        #beneficios {
+            background-color: #0F0F0F;
+        }
+
+        .beneficios-header {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 3rem;
+        }
+
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card-beneficio {
+            background-color: #1A1A1A;
+            border: 1px solid #2A2A2A;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-beneficio:hover {
+            border-color: #3A4A5A;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-beneficio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background-color: #1E90FF;
+            transition: height 0.3s ease;
+        }
+
+        .card-beneficio:hover::before {
+            height: 100%;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #0A0A0A;
+            border: 1px solid #3A4A5A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            color: #1E90FF;
+        }
+
+        .card-beneficio h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-beneficio p {
+            font-size: 0.875rem;
+            font-weight: 300;
+            color: #B0B0B0;
+            line-height: 1.7;
+        }
+
+        /* 
+                   AUTORIDADE (SOBRE)
+                    */
+        #autoridade {
+            position: relative;
+        }
+
+        #autoridade .container {
+            display: grid;
+            grid-template-columns: minmax(260px, 320px) minmax(460px, 1fr);
+            gap: 1.25rem;
+            align-items: start;
+            justify-content: center;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .autoridade-image {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+            max-width: 100%;
+            overflow: hidden;
+            align-self: start;
+            margin-top: 0;
+        }
+
+        .autoridade-videos {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.75rem;
+            width: 100%;
+            align-items: start;
+        }
+
+        .autoridade-image img,
+        .autoridade-image video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .autoridade-image img {
+            width: clamp(180px, 18vw, 260px) !important;
+            align-self: center;
+            margin-top: 0;
+        }
+
+        .autoridade-image video {
+            width: 100%;
+            min-height: 340px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        .autoridade-photo-placeholder {
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 4 / 5;
+            background-color: #1A1A1A;
+            border: 1px solid #2A2A2A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #9E9E9E;
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 2rem;
+            filter: grayscale(80%) contrast(1.1);
+            transition: filter 0.5s ease;
+        }
+
+        .autoridade-photo-placeholder:hover {
+            filter: grayscale(0%) contrast(1);
+        }
+
+        .autoridade-photo-placeholder .icon-camera {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            opacity: 0.4;
+        }
+
+        .credential-badge {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            background-color: #0A0A0A;
+            border: 1px solid #3A4A5A;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            color: #1E90FF;
+            margin-top: 1.5rem;
+        }
+
+        .autoridade-content {
+            align-self: start;
+            justify-self: start;
+            max-width: 520px;
+            padding-left: 0.5rem;
+            min-width: 0;
+            margin-top: 0;
+        }
+
+        .autoridade-content h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .autoridade-content p {
+            margin-bottom: 1rem;
+        }
+
+        .autoridade-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1A1A1A;
+            border: 1px solid #2A2A2A;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1E90FF;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: #9E9E9E;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.25rem;
+        }
+
+        /* 
+                   FORMULÁRIO
+                    */
+        #formulario {
+            background-color: #0F0F0F;
+            position: relative;
+        }
+
+        #formulario::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #1E90FF, transparent);
+        }
+
+        .form-wrapper {
+            max-width: 580px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .form-wrapper h2 {
+            margin-bottom: 0.75rem;
+        }
+
+        .form-wrapper > p {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-card {
+            background-color: #1A1A1A;
+            border: 1px solid #2A2A2A;
+            padding: 2.5rem;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #B0B0B0;
+            margin-bottom: 0.375rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background-color: #0A0A0A;
+            border: 1px solid #2A2A2A;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #1E90FF;
+        }
+
+        .form-group input::placeholder {
+            color: #555555;
+            font-weight: 300;
+        }
+
+        .form-card .btn {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .form-disclaimer {
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: #555555;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* 
+                   OFERTA E GARANTIA
+                    */
+        #oferta {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #oferta::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle at center, rgba(30, 144, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .oferta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .oferta-content h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .oferta-content > p {
+            margin-bottom: 2rem;
+        }
+
+        .bonus-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .bonus-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #1A1A1A;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #B0B0B0;
+        }
+
+        .bonus-list li::before {
+            content: '+';
+            color: #1E90FF;
+            font-weight: 700;
+            font-size: 1.125rem;
+            flex-shrink: 0;
+        }
+
+        .garantia-card {
+            background-color: #1A1A1A;
+            border: 1px solid #2A2A2A;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .garantia-card::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 1px solid #3A4A5A;
+            z-index: -1;
+        }
+
+        .garantia-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: #1E90FF;
+        }
+
+        .garantia-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .garantia-card p {
+            font-size: 0.875rem;
+            font-weight: 300;
+            color: #B0B0B0;
+            line-height: 1.7;
+        }
+
+        .garantia-destaque {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.5rem 1.5rem;
+            background-color: transparent;
+            border: 1px solid #1E90FF;
+            color: #1E90FF;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* 
+                   FAQ
+                    */
+        #faq {
+            background-color: #0F0F0F;
+        }
+
+        .faq-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 3rem;
+        }
+
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: #1A1A1A;
+            border: 1px solid #2A2A2A;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: #222222;
+        }
+
+        .faq-question .faq-toggle {
+            font-size: 1.25rem;
+            color: #1E90FF;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 1.5rem;
+            color: #B0B0B0;
+            font-size: 0.875rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 1.5rem 1.25rem;
+        }
+
+        /* Acessibilidade accordion */
+        .faq-answer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 
+                   FOOTER
+                    */
+        footer {
+            background-color: #070707;
+            border-top: 1px solid #1A1A1A;
+            padding: 3rem 0 1.5rem;
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        footer h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+
+        footer p, footer a {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: #9E9E9E;
+            line-height: 1.8;
+        }
+
+        footer a {
+            display: block;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: #1E90FF;
+        }
+
+        .footer-brand {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-brand span {
+            color: #1E90FF;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #1A1A1A;
+            border: 1px solid #2A2A2A;
+            color: #B0B0B0;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background-color: #1E90FF;
+            border-color: #1E90FF;
+            color: #0A0A0A;
+        }
+
+        .footer-bottom {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #1A1A1A;
+        }
+
+        .footer-bottom p {
+            font-size: 0.75rem;
+            color: #555555;
+        }
+
+        /* 
+                   RESPONSIVO
+                    */
+        @media (max-width: 1024px) {
+            #hero .container,
+            #autoridade .container,
+            .oferta-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-photo-placeholder {
+                max-width: 320px;
+            }
+
+            .autoridade-content {
+                order: 1;
+            }
+
+            .autoridade-image {
+                order: 0;
+            }
+
+            .autoridade-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            footer .container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #0A0A0A;
+                border-bottom: 1px solid #1A1A1A;
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1.25rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-photo-placeholder {
+                max-width: 280px;
+            }
+
+            .autoridade-photo-placeholder {
+                max-width: 280px;
+            }
+
+            .autoridade-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+
+            .form-card {
+                padding: 1.5rem;
+            }
+
+            .oferta-grid {
+                gap: 2rem;
+            }
+
+            .garantia-card {
+                padding: 1.5rem;
+            }
+
+            footer .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-photo-placeholder {
+                max-width: 240px;
+            }
+
+            .autoridade-photo-placeholder {
+                max-width: 240px;
+            }
+
+            .autoridade-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .bonus-list li {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 
+     HEADER
+      -->
+<header>
+    <div class="container">
+        <div class="logo">Dor<span>EmAjuste</span></div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            &#9776;
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#beneficios">Benefícios</a></li>
+            <li><a href="#autoridade">Sobre</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#formulario" class="nav-cta">Agende Agora</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- 
+     HERO — PRIMEIRA DOBRA
+      -->
+<section id="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                Fisioterapeuta - CREFITO: 457762-F 
+            </div>
+
+            <h1 class="heading-xl">
+                ERIC DE GODOY CORRADI
+                <span class="text-blue">Fisioterapeuta Domiciliar</span>
+            </h1>
+
+            <p class="body-lg">
+                Soluciono suas dores no conforto do seu lar através do movimento eficiente e aliado à prática baseada em evidências.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#formulario" class="btn btn-primary">
+                    Agende sua Avaliação
+                </a>
+                <a href="#beneficios" class="btn btn-outline">
+                    Saiba Mais
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <!-- Placeholder para a foto do Eric -->
+            <img src="http://srv1037541.hstgr.cloud:18087/images/imagem1.png"width="600px" height="600px"> 
+            <div class="hero-geo"></div>
+        </div>
+    </div>
+</section>
+
+<!-- 
+     BENEFÍCIOS E SOLUÇÃO
+      -->
+<section id="beneficios">
+    <div class="container">
+        <div class="beneficios-header">
+            <span class="section-label">Por que escolher</span>
+            <h2 class="heading-lg">Atendimento domiciliar <span class="text-blue">baseado em evidências</span></h2>
+            <p class="body-lg" style="margin-top:1rem;">
+                Sente que suas dores atrapalham seu dia? Pensa que após alguns dias ela irá acabar e na verdade piora?
+                Através da fisioterapia domiciliar soluciono suas dores no conforto do seu lar, sem a necessidade de deslocamento ou outros estresses. Através do movimento eficiente aliado à prática baseada em evidências resolvo suas dores e desconforto.
+            </p>
+        </div>
+
+        <div class="beneficios-grid">
+            <div class="card-beneficio">
+                <div class="card-icon">
+                    &#9901;
+                </div>
+                <h3>Conforto do seu lar</h3>
+                <p>Não precisa se deslocar. Atendimento no ambiente domiciliar, sem estresse, filas ou trânsito. O tratamento acontece onde você se sente seguro.</p>
+            </div>
+
+            <div class="card-beneficio">
+                <div class="card-icon">
+                    &#9881;
+                </div>
+                <h3>Movimento eficiente</h3>
+                <p>Utilizo técnicas baseadas em evidências científicas para restaurar seu movimento de forma eficiente e duradoura, tratando a causa, não apenas o sintoma.</p>
+            </div>
+
+            <div class="card-beneficio">
+                <div class="card-icon">
+                    &#9777;
+                </div>
+                <h3>Atendimento personalizado</h3>
+                <p>Cada paciente é único. Seu plano de tratamento é desenhado especificamente para suas necessidades, objetivos e rotina.</p>
+            </div>
+
+            <div class="card-beneficio">
+                <div class="card-icon">
+                    &#9733;
+                </div>
+                <h3>Resultados reais</h3>
+                <p>Acompanhamento contínuo e ajustes baseados na sua evolução. Não entrego paliativos — entrego soluções para suas dores.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 
+     AUTORIDADE — SOBRE
+      -->
+<section id="autoridade">
+    <div class="container">
+        <div class="autoridade-image">
+            <!-- Placeholder da foto profissional do Eric em tons de cinza/azul -->
+            <img src="http://srv1037541.hstgr.cloud:18087/images/imagem2.png" alt="Eric de Godoy Corradi">
+
+            <div class="autoridade-videos">
+                <video loop autoplay muted playsinline src="http://srv1037541.hstgr.cloud:18087/videos/video_dor.mp4"></video>
+                <video loop autoplay muted playsinline src="http://srv1037541.hstgr.cloud:18087/videos/respiracao_diafragmatica.mp4"></video>
+                <video loop autoplay muted playsinline src="http://srv1037541.hstgr.cloud:18087/videos/marcha_estacionaria.mp4"></video>
+            </div>
+        </div>
+
+        <div class="autoridade-content">
+            <span class="section-label">Sobre</span>
+            <h2 class="heading-lg">Eric de Godoy Corradi</h2>
+
+            <div class="credential-badge">CREFITO 457762-F</div>
+
+            <p class="body-lg" style="margin-top:1.5rem;">
+                Fisioterapeuta domiciliar apaixonado por movimento humano e prática baseada em evidências. Minha missão é solucionar suas dores no conforto do seu lar, devolvendo sua qualidade de vida sem que você precise se deslocar ou enfrentar filas.
+            </p>
+            <p class="body-lg">
+                Cada tratamento é construído com rigor científico, escuta ativa e um plano personalizado — porque acredito que a fisioterapia de verdade começa com a compreensão do paciente como um todo.
+            </p>
+
+            <div class="autoridade-stats">
+                <div class="stat-item">
+                    <span class="stat-number">+50</span>
+                    <span class="stat-label">Atendimentos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Satisfação</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2 anos</span>
+                    <span class="stat-label">Experiência</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 
+     FORMULÁRIO PRINCIPAL
+      -->
+<section id="formulario">
+    <div class="container">
+        <div class="form-wrapper">
+            <h2 class="heading-lg">Solicite sua <span class="text-blue">avaliação</span></h2>
+            <p class="body-lg">
+                Preencha os dados abaixo e entrarei em contato em até 24 horas para agendar sua avaliação domiciliar.
+            </p>
+
+            <form class="form-card" action="#" method="post">
+                <div class="form-group">
+             expande<label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com.br" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone / WhatsApp</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Agendar Avaliação
+                </button>
+
+                <p class="form-disclaimer">
+                    Seus dados estão seguros. Não enviaremos spam. Ao enviar, você concorda com nossa <a href="http://srv1037541.hstgr.cloud:18087/documents/politica.pdf" style="color:#1E90FF;text-decoration:underline;">Política de Privacidade</a>.
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- 
+     FAQ — DÚVIDAS FREQUENTES
+      -->
+<section id="faq">
+    <div class="container">
+        <div class="faq-header">
+            <span class="section-label">Dúvidas frequentes</span>
+            <h2 class="heading-lg">Tire suas <span class="text-blue">principais dúvidas</span></h2>
+        </div>
+
+        <div class="faq-list">
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    O que é a fisioterapia domiciliar e como funciona?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer" role="region">
+                    <p>
+                        A fisioterapia domiciliar é o atendimento fisioterapêutico realizado na sua casa, com todo o conforto e privacidade do seu lar. Eu vou até você com os equipamentos necessários, realizo a avaliação completa e criamos juntos um plano de tratamento personalizado. Não há necessidade de deslocamento, filas ou espera.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    Quanto tempo dura cada sessão?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer" role="region">
+                    <p>
+                        Cada sessão tem duração média de 50 a 60 minutos, dependendo da complexidade do caso e das técnicas utilizadas. A frequência semanal é definida após a avaliação inicial, baseada na sua condição e objetivos.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    Preciso de encaminhamento médico?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer" role="region">
+                    <p>
+                        Não. O fisioterapeuta é um profissional de saúde autônomo e pode atender sem necessidade de encaminhamento médico. No entanto, se você tiver exames ou relatórios médicos, traga-os — eles ajudam a enriquecer o diagnóstico e o planejamento do tratamento.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    Quais regiões de Curitiba você atende?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer" role="region">
+                    <p>
+                        Atualmente atendo em toda região de Curitiba e regiões metropolitanas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    Quanto custa o tratamento?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer" role="region">
+                    <p>
+                        O valor varia conforme o plano de tratamento definido após a avaliação. Trabalho com valores acessíveis e condições especiais. A primeira consulta sempre será a avaliação e você decide se quer continuar.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    Como agendar minha avaliação?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer" role="region">
+                    <p>
+                        Basta preencher o formulário nesta página com seu nome, e-mail e telefone. Entrarei em contato em até 24 horas para agendar o melhor horário para você. Simples, rápido e prático.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 
+     FOOTER
+      -->
+<footer>
+    <div class="container">
+        <div>
+            <div class="footer-brand">Eric <span>Corradi</span></div>
+            <p>Fisioterapeuta DomiciliarCREFITO 457762-F</p>
+            <p style="margin-top:0.75rem;">
+                Soluciono suas dores no conforto do seu lar
+                através do movimento eficiente e da prática baseada em evidências.
+            </p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/doremajuste?igsh=MWJxemtzaDFsMm9sdQ==" aria-label="Instagram" title="Instagram">IG</a>
+                <a href="https://wa.me/message/SWL25R27WOYGO1" aria-label="WhatsApp" title="WhatsApp">WA</a>
+            </div>
+        </div>
+
+        <div>
+            <h4>Links</h4>
+            <a href="https://tuiutiedu-my.sharepoint.com/:b:/g/personal/eric_corradi_utp_edu_br/IQDBzf7NMCYHRqwRh-_TVIMgAczfg9GvE_oaR5RFngOGi5w?e=SpXCsm">Política de Privacidade</a>
+            <a href="https://tuiutiedu-my.sharepoint.com/:b:/g/personal/eric_corradi_utp_edu_br/IQAV9qN3q6GGSamRI2OxFVztAYlp-m0-fsGRLQESuuxjiNA?e=wwdQlT">Termos de Uso</a>
+            <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">LGPD</a>
+        </div>
+
+        <div>
+            <h4>Contato</h4>
+            <p>WhatsApp: (41) 98494-2503</p>
+            <p>Instagram: @doremajuste
+            <p>E-mail: doremajuste@gmail.com</p>
+            <p>Curitiba, Pr</p>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Eric de Godoy Corradi — Todos os direitos reservados. CREFITO 457762-F</p>
+        </div>
+    </div>
+</footer>
+
+<!-- 
+     JAVASCRIPT — MENU MOBILE E ACCORDION FAQ
+      -->
+<script>
+    (function() {
+        'use strict';
+
+        // ---- Mobile Menu ----
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('open');
+            });
+
+            // Fechar menu ao clicar em um link
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('open');
+                });
+            });
+        }
+
+        // ---- FAQ Accordion ----
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(function(item) {
+            const question = item.querySelector('.faq-question');
+
+            if (question) {
+                question.addEventListener('click', function() {
+                    const isActive = item.classList.contains('active');
+
+                    // Fecha todos
+                    faqItems.forEach(function(other) {
+                        other.classList.remove('active');
+                        const otherBtn = other.querySelector('.faq-question');
+                        if (otherBtn) {
+                            otherBtn.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+
+                    // Abre o atual se não estava ativo
+                    if (!isActive) {
+                        item.classList.add('active');
+                        question.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            }
+        });
+
+        // ---- Smooth Scroll para links internos (fallback) ----
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                const href = anchor.getAttribute('href');
+                if (href === '#') return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    const offset = 80; // altura do header fixo
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: top,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+    })();
+</script>
+
+</body>
+</html>
